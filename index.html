@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sombrita - Sitio web oficial. Próximamente.">
+  <title>Sombrita</title>
+  
+  <!-- Tipografía moderna (Outfit & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos base -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Encabezado / Navegación -->
+  <header class="site-header">
+    <div class="container header-wrapper">
+      <div class="logo">
+        <a href="/">Sombrita<span>.</span></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#sobre-nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="theme-toggle-wrapper">
+        <button id="theme-btn" aria-label="Cambiar tema">
+          <!-- Icono de sol/luna (se puede alternar con JS) -->
+          <span class="icon">🌓</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+    
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-wrapper">
+        <h1 class="hero-title">Diseñando el futuro bajo la <span>Sombrita</span>.</h1>
+        <p class="hero-subtitle">Proyecto base listo para desplegar en Vercel. Empieza a crear tu diseño aquí.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Comenzar Proyecto</a>
+          <a href="#sobre-nosotros" class="btn btn-secondary">Saber más</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros (Ejemplo) -->
+    <section id="sobre-nosotros" class="about-section">
+      <div class="container">
+        <h2>Nosotros</h2>
+        <p>Esta es una sección base. Puedes modificar todo este contenido o agregar tus propias secciones según el diseño que desees.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="site-footer">
+    <div class="container footer-wrapper">
+      <p>&copy; 2026 Sombrita. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Lógica de control en JavaScript -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
