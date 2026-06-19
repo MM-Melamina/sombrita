@@ -61,3 +61,5 @@ Vercel detectará automáticamente este proyecto como un sitio de **Vite** y man
    - Un registro **A** apuntando a la IP de Vercel (`76.76.21.21`).
    - O un registro **CNAME** para la redirección de `www`.
 4. Una vez guardados los registros en tu registrador, Vercel validará el dominio y generará un certificado SSL gratuito automáticamente. ¡Tu página estará lista!
+
+<!-- Test Deployment -->
