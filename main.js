@@ -21,20 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Manejo de submenú desplegable (Dropdown) en Móviles
-  const dropdown = document.querySelector('.dropdown');
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
-
-  if (dropdownToggle && dropdown) {
-    dropdownToggle.addEventListener('click', (e) => {
-      // Solo controlar el despliegue mediante clic en pantallas móviles (menores a 768px)
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle('active');
-      }
-    });
-  }
+  // 2. Manejo de submenús desplegables (Dropdowns) en Móviles
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        // Solo controlar el despliegue mediante clic en pantallas móviles (menores o iguales a 992px)
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdown.classList.toggle('active');
+        }
+      });
+    }
+  });
 
   // 3. Efectos de Scroll en el Header
   const header = document.querySelector('.site-header');

@@ -1120,7 +1120,7 @@ ul {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .logo-block {
     position: static;
     width: auto;
@@ -1179,6 +1179,7 @@ ul {
     transform: translateY(-10px);
     transition: var(--transition-smooth);
     padding: 1.5rem 0;
+    z-index: 1005;
   }
 
   .main-nav.active {
