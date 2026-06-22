@@ -89,10 +89,10 @@ ul {
 }
 
 .logo-image-large {
-  height: 95px;
+  height: 135px;
   width: auto;
   object-fit: contain;
-  margin-top: 3px;
+  margin-top: 0;
   filter: drop-shadow(0 2px 8px rgba(10, 28, 63, 0.05));
   transition: var(--transition-smooth);
 }
@@ -576,7 +576,7 @@ ul {
   }
 
   .logo-image-large {
-    height: 75px;
+    height: 105px;
   }
 
   .logo-title {
@@ -635,7 +635,7 @@ ul {
   }
 
   .logo-image-large {
-    height: 50px;
+    height: 65px;
     margin-top: 0;
   }
 
