@@ -792,7 +792,7 @@ ul {
 .vista-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1.2rem;
   width: 100%;
 }
@@ -1004,7 +1004,7 @@ ul {
 .vistas-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .roll-drawing-placeholder {
