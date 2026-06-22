@@ -5,8 +5,8 @@
 /* 1. Definición de Variables y Temas */
 :root {
   /* Fuentes */
-  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Colores del Cliente */
   --navy-dark: #0a1c3f;      /* Azul marino de GoDaddy/Sombrita */
@@ -14,9 +14,9 @@
   --orange-accent: #e65c00;  /* Naranja brillante del logo */
   --orange-light: #ff751a;   /* Naranja hover */
   
-  /* Fondos de Paneles Alternantes */
-  --bg-blue-gray: #cfd7e1;   /* Panel 1, 3, 5 */
-  --bg-olive-gray: #dcd7cc;  /* Panel 2, 4, 6 */
+  /* Fondos de Paneles Alternantes (Extraídos con precisión de la paleta del cliente) */
+  --bg-blue-gray: #b2bdcd;   /* Soft slate blue-gray */
+  --bg-olive-gray: #cfcac0;  /* Soft warm clay/beige */
   --bg-light: #fafafa;
   --border-color: rgba(10, 28, 63, 0.08);
   --text-dark: #0a1c3f;
@@ -240,7 +240,7 @@ ul {
 .hero-video-section {
   position: relative;
   width: 100%;
-  height: 60vh; /* Altura ideal */
+  height: 60vh;
   min-height: 400px;
   overflow: hidden;
   background-color: var(--navy-dark);
@@ -363,45 +363,67 @@ ul {
   z-index: 2;
 }
 
-/* Grid de Contenido */
+/* Grid de Contenido (Imagen más grande: 60% vs Texto: 40%) */
 .content-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1.5fr; /* 40% Texto, 60% Imagen */
   gap: 4rem;
   align-items: center;
 }
 
 .content-grid.reverse {
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1.5fr 1fr; /* 60% Imagen, 40% Texto */
 }
 
+/* 8. Text Blocks y Cajas Blancas (Overlapping White Boxes) */
 .text-block {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  z-index: 10; /* Siempre sobre la imagen */
 }
 
 .section-title {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--navy-dark);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #3b4b6b; /* Muted grayish-blue */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-card-box {
+  background-color: #ffffff;
+  padding: 2.2rem 2.8rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(10, 28, 63, 0.08);
+  width: 125%; /* Se extiende más allá del 40% de su columna */
+}
+
+/* Para grids normales (texto izquierda): solapa a la derecha sobre la imagen */
+.content-grid:not(.reverse) .text-card-box {
+  margin-right: -25%; 
+}
+
+/* Para grids revertidos (texto derecha): solapa a la izquierda sobre la imagen */
+.content-grid.reverse .text-card-box {
+  transform: translateX(-20%);
 }
 
 .section-text {
-  font-size: 1.05rem;
-  color: var(--navy-dark);
+  font-size: 0.95rem;
+  color: #4a5568;
   line-height: 1.7;
 }
 
 .section-text strong {
   font-weight: 700;
-  color: var(--navy-dark);
+  color: #1a202c;
 }
 
-/* 8. Separadores de Líneas de Producto */
+/* 9. Separadores de Líneas de Producto */
 .banner-separator {
   background-color: var(--navy-dark);
   color: #ffffff;
@@ -424,7 +446,7 @@ ul {
   font-weight: 800;
 }
 
-/* 9. Estilos de las Imágenes de la Cuadrícula (Grid Images) */
+/* 10. Estilos de las Imágenes del Grid (Grandes y Estilizadas) */
 .image-placeholder-wrapper {
   width: 100%;
   border-radius: 12px;
@@ -443,7 +465,7 @@ ul {
 .grid-image {
   width: 100%;
   height: 100%;
-  aspect-ratio: 16/11;
+  aspect-ratio: 16/10; /* Proporción panorámica ideal */
   display: block;
   object-fit: cover;
   transition: var(--transition-smooth);
@@ -453,7 +475,7 @@ ul {
   transform: scale(1.04);
 }
 
-/* 10. Footer */
+/* 11. Footer */
 .site-footer {
   background-color: var(--navy-dark);
   color: #ffffff;
@@ -491,7 +513,7 @@ ul {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* 11. Media Queries (Responsividad) */
+/* 12. Media Queries (Responsividad) */
 @media (max-width: 992px) {
   .content-grid, .content-grid.reverse {
     grid-template-columns: 1fr;
@@ -502,9 +524,21 @@ ul {
     display: flex;
     flex-direction: column-reverse;
   }
+
+  .text-card-box {
+    width: 100%;
+  }
+
+  .content-grid:not(.reverse) .text-card-box {
+    margin-right: 0;
+  }
+
+  .content-grid.reverse .text-card-box {
+    transform: none;
+  }
   
   .section-title {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -590,6 +624,10 @@ ul {
   .skew-section {
     padding: 5rem 0;
     margin: 2rem 0;
+  }
+
+  .text-card-box {
+    padding: 1.8rem 2rem;
   }
 
   .hero-video-section {
