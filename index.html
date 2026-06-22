@@ -35,13 +35,8 @@
     <div class="container header-wrapper">
       <div class="logo">
         <a href="/" class="logo-link">
-          <!-- Logo SVG inspirado en la marca del cliente -->
-          <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="30" r="12" fill="#e65c00" />
-            <path d="M20,65 Q50,35 80,65" stroke="#0e2254" stroke-width="8" fill="none" stroke-linecap="round" />
-            <path d="M30,75 Q50,50 70,75" stroke="#e65c00" stroke-width="6" fill="none" stroke-linecap="round" />
-            <path d="M50,45 L50,85" stroke="#0e2254" stroke-width="5" fill="none" stroke-linecap="round" />
-          </svg>
+          <!-- Logo PNG implementado -->
+          <img src="./imagenes/Logo Sombrita-01.png" alt="Sombrita" class="logo-image" />
           <div class="logo-text-wrapper">
             <span class="logo-title">SOMBRITA</span>
             <span class="logo-subtitle">MALLAS SOMBRA & MALLAS LONAS</span>
@@ -78,18 +73,18 @@
   <!-- Contenido Principal -->
   <main class="main-content">
     
-    <!-- Hero Video Placeholder -->
+    <!-- Hero Video Section -->
     <section class="hero-video-section">
-      <div class="video-placeholder">
+      <div class="video-container">
+        <video autoplay loop muted playsinline class="hero-video">
+          <source src="./imagenes/inicio/sombrita pest inico.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
         <div class="video-overlay"></div>
-        <div class="video-placeholder-content">
-          <div class="play-icon-wrapper">
-            <svg class="play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h2>Espacio para Video Corporativo / Banner</h2>
-          <p>Mallas de alta resistencia y lonas arquitectónicas para protección exterior</p>
+        <div class="video-content">
+          <h1>Mallas Sombra y Lonas de Alta Calidad</h1>
+          <p>Soluciones duraderas para el sector residencial, comercial e industrial en todo México</p>
+          <a href="#contacto" class="btn btn-primary">Cotizar Ahora</a>
         </div>
       </div>
     </section>
@@ -105,11 +100,7 @@
             </p>
           </div>
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 4/3;">
-              <span class="placeholder-icon">🖼️</span>
-              <span class="placeholder-label">Imagen: Mallas Sombra (Estacionamientos / Residencial)</span>
-              <span class="placeholder-size">Sugerido: 800 x 600 px</span>
-            </div>
+            <img src="./imagenes/inicio/lona azul naranja.png" alt="Mallas Sombra y Lonas" class="grid-image" />
           </div>
         </div>
       </div>
@@ -120,11 +111,7 @@
       <div class="container skew-content">
         <div class="content-grid reverse">
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 4/3;">
-              <span class="placeholder-icon">🌱</span>
-              <span class="placeholder-label">Imagen: Malla Sombra Agrícola / Invernaderos</span>
-              <span class="placeholder-size">Sugerido: 800 x 600 px</span>
-            </div>
+            <img src="./imagenes/inicio/lona beige.png" alt="Alquimia entre Naturaleza y Diseño" class="grid-image" />
           </div>
           <div class="text-block">
             <h2 class="section-title">Alquimia entre la Naturaleza y el Diseño</h2>
@@ -154,11 +141,7 @@
             </p>
           </div>
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 16/10;">
-              <span class="placeholder-icon">🏡</span>
-              <span class="placeholder-label">Imagen: Malla Raschel (Terrazas / Patios)</span>
-              <span class="placeholder-size">Sugerido: 900 x 560 px</span>
-            </div>
+            <img src="./imagenes/inicio/ChatGPT Image 19 jun 2026, 11_46_18 a.m..png" alt="Soluciones Malla Sombra Raschel" class="grid-image" />
           </div>
         </div>
       </div>
@@ -176,11 +159,7 @@
       <div class="container skew-content">
         <div class="content-grid reverse">
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 16/10;">
-              <span class="placeholder-icon">🏛️</span>
-              <span class="placeholder-label">Imagen: Tensoestructuras / Lonas Arquitectónicas</span>
-              <span class="placeholder-size">Sugerido: 900 x 560 px</span>
-            </div>
+            <img src="./imagenes/inicio/4b8a2b5329602b91a067c2df3e8463ea.jpg" alt="Tensoestructuras y Lonas Arquitectónicas" class="grid-image" />
           </div>
           <div class="text-block">
             <h2 class="section-title">Soluciones para todos tus Proyectos</h2>
@@ -210,11 +189,7 @@
             </p>
           </div>
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 16/10;">
-              <span class="placeholder-icon">🚚</span>
-              <span class="placeholder-label">Imagen: Lona de Transportistas / Camiones de Carga</span>
-              <span class="placeholder-size">Sugerido: 900 x 560 px</span>
-            </div>
+            <img src="./imagenes/inicio/b85f620b5f92883c01cf9f9e2cc53ea8.jpg" alt="Lonas para Transportistas y Camiones" class="grid-image" />
           </div>
         </div>
       </div>
@@ -232,11 +207,7 @@
       <div class="container skew-content">
         <div class="content-grid reverse">
           <div class="image-placeholder-wrapper">
-            <div class="img-placeholder" style="aspect-ratio: 16/10;">
-              <span class="placeholder-icon">🎪</span>
-              <span class="placeholder-label">Imagen: Lonas para Toldos Comerciales o Residenciales</span>
-              <span class="placeholder-size">Sugerido: 900 x 560 px</span>
-            </div>
+            <img src="./imagenes/inicio/d608f55a591b14298727173f064c6d78.jpg" alt="Toldos y Lonas Comerciales" class="grid-image" />
           </div>
           <div class="text-block">
             <h2 class="section-title">Protegemos tu negocio</h2>
