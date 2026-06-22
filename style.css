@@ -1121,19 +1121,30 @@ ul {
 }
 
 @media (max-width: 992px) {
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    background-color: #ffffff;
+    padding: 0;
+  }
+
   .logo-block {
     position: static;
     width: auto;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px 2rem;
-    gap: 12px;
-    background-color: #ffffff;
+    padding: 0 0 0 2rem;
+    background-color: transparent;
+    display: flex;
+    z-index: 1100;
+    height: 100%;
   }
 
   .logo-image-large {
-    height: 65px;
+    height: 55px;
     margin-top: 0;
   }
 
@@ -1154,8 +1165,11 @@ ul {
   }
 
   .header-bottom-row {
-    height: 60px;
-    background-color: #ffffff;
+    height: 100%;
+    background-color: transparent;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
   }
 
   .nav-spacer {
@@ -1163,7 +1177,11 @@ ul {
   }
 
   .nav-container {
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
+    height: 100%;
+    padding: 0 2rem 0 0;
   }
 
   .main-nav {
@@ -1214,7 +1232,7 @@ ul {
 
   .mobile-nav-toggle {
     display: flex;
-    margin-right: 2rem;
+    margin-right: 0;
   }
 
   .mobile-nav-toggle.active .bar:nth-child(1) {
