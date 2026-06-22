@@ -14,7 +14,7 @@
   --orange-accent: #e65c00;  /* Naranja brillante del logo */
   --orange-light: #ff751a;   /* Naranja hover */
   
-  /* Fondos de Paneles Alternantes (Extraídos con precisión de la paleta del cliente) */
+  /* Fondos de Paneles Alternantes */
   --bg-blue-gray: #b2bdcd;   /* Soft slate blue-gray */
   --bg-olive-gray: #cfcac0;  /* Soft warm clay/beige */
   --bg-light: #fafafa;
@@ -65,77 +65,138 @@ ul {
   padding: 0 2rem;
 }
 
-/* 4. Barra Superior (Top Bar) */
-.top-bar {
-  background-color: var(--navy-dark);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.8rem;
-  padding: 8px 0;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.top-bar-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-bar-left, .top-bar-right {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* 5. Cabecera y Navegación */
+/* 4. Cabecera Estilo GoDaddy Custom */
 .site-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(10, 28, 63, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: #ffffff;
+  width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
-.header-wrapper {
+/* Bloque del Logotipo Absoluto */
+.logo-block {
+  position: absolute;
+  left: 4.5rem;
+  top: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  height: 90px;
+  z-index: 1100;
+  width: 240px;
+  text-align: center;
 }
 
-/* Logo */
-.logo-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-image {
-  height: 60px;
-  width: 60px;
+.logo-image-large {
+  height: 95px;
+  width: auto;
   object-fit: contain;
+  margin-top: 3px;
+  filter: drop-shadow(0 2px 8px rgba(10, 28, 63, 0.05));
+  transition: var(--transition-smooth);
+}
+
+.logo-image-large:hover {
+  transform: scale(1.03);
 }
 
 .logo-text-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  width: 100%;
 }
 
 .logo-title {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--navy-dark);
-  letter-spacing: -0.04em;
+  letter-spacing: 0.12em;
   line-height: 1;
 }
 
+.logo-title .orange-char {
+  color: var(--orange-accent);
+}
+
 .logo-subtitle {
-  font-size: 0.55rem;
+  font-size: 0.46rem;
   font-weight: 700;
   color: var(--orange-accent);
-  letter-spacing: 0.15em;
-  margin-top: 2px;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+  border-top: 1px solid var(--orange-accent);
+  border-bottom: 1px solid var(--orange-accent);
+  padding: 2px 6px;
+  width: auto;
+}
+
+/* Fila Superior (Top Bar con Cortes Diagonales) */
+.header-top-row {
+  display: flex;
+  height: 40px;
+  background-color: #ffffff; /* El fondo en el gap de en medio es blanco */
+  position: relative;
+}
+
+.top-blue-left {
+  width: 4.5rem;
+  background-color: var(--navy-dark);
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+}
+
+.top-gap {
+  width: 240px; /* Crea el espacio en blanco exacto para el logotipo */
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.top-blue-right {
+  flex-grow: 1;
+  background-color: var(--navy-dark);
+  clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4rem;
+}
+
+.top-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.top-links a {
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.top-links a:hover {
+  color: var(--orange-accent);
+}
+
+/* Fila Inferior (Barra Gris con Navegación) */
+.header-bottom-row {
+  background-color: #e2e5ec; /* Gris claro de la muestra */
+  border-bottom: 3.5px solid var(--navy-dark); /* Borde azul marino grueso */
+  height: 65px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-spacer {
+  width: 260px; /* Evita que el menú colisione con el logotipo */
+  flex-shrink: 0;
 }
 
 /* Menu de Navegación */
@@ -147,12 +208,14 @@ ul {
 
 .main-nav > ul > li > a {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--navy-dark);
-  letter-spacing: 0.02em;
-  position: relative;
+  color: #4a5568; /* Color de link de la muestra */
+  letter-spacing: 0.03em;
   padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .main-nav > ul > li > a:hover {
@@ -164,14 +227,8 @@ ul {
   position: relative;
 }
 
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .dropdown-toggle .arrow {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   transition: var(--transition-smooth);
 }
 
@@ -186,7 +243,7 @@ ul {
   left: 0;
   background-color: #ffffff;
   min-width: 240px;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: 0 10px 30px rgba(10, 28, 63, 0.1);
   border-top: 3px solid var(--orange-accent);
   opacity: 0;
@@ -207,7 +264,7 @@ ul {
   display: block;
   padding: 10px 20px;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-dark);
 }
 
@@ -236,7 +293,7 @@ ul {
   transition: var(--transition-smooth);
 }
 
-/* 6. Sección de Video Hero */
+/* 5. Sección de Video Hero */
 .hero-video-section {
   position: relative;
   width: 100%;
@@ -325,7 +382,7 @@ ul {
   box-shadow: 0 6px 20px rgba(230, 92, 0, 0.35);
 }
 
-/* 7. Bloques Sesgados (Alternating Skewed Panels) */
+/* 6. Bloques Sesgados (Alternating Skewed Panels) */
 .skew-section {
   position: relative;
   padding: 7rem 0;
@@ -375,13 +432,13 @@ ul {
   grid-template-columns: 1.5fr 1fr; /* 60% Imagen, 40% Texto */
 }
 
-/* 8. Text Blocks y Cajas Blancas (Overlapping White Boxes) */
+/* 7. Text Blocks y Cajas Blancas (Overlapping White Boxes) */
 .text-block {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   position: relative;
-  z-index: 10; /* Siempre sobre la imagen */
+  z-index: 10;
 }
 
 .section-title {
@@ -389,7 +446,7 @@ ul {
   font-size: 3rem;
   font-weight: 400;
   font-style: italic;
-  color: #3b4b6b; /* Muted grayish-blue */
+  color: #3b4b6b;
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
@@ -399,15 +456,13 @@ ul {
   padding: 2.2rem 2.8rem;
   border-radius: 4px;
   box-shadow: 0 10px 40px rgba(10, 28, 63, 0.08);
-  width: 125%; /* Se extiende más allá del 40% de su columna */
+  width: 125%;
 }
 
-/* Para grids normales (texto izquierda): solapa a la derecha sobre la imagen */
 .content-grid:not(.reverse) .text-card-box {
   margin-right: -25%; 
 }
 
-/* Para grids revertidos (texto derecha): solapa a la izquierda sobre la imagen */
 .content-grid.reverse .text-card-box {
   transform: translateX(-20%);
 }
@@ -423,7 +478,7 @@ ul {
   color: #1a202c;
 }
 
-/* 9. Separadores de Líneas de Producto */
+/* 8. Separadores de Líneas de Producto */
 .banner-separator {
   background-color: var(--navy-dark);
   color: #ffffff;
@@ -446,7 +501,7 @@ ul {
   font-weight: 800;
 }
 
-/* 10. Estilos de las Imágenes del Grid (Grandes y Estilizadas) */
+/* 9. Estilos de las Imágenes del Grid (Grandes y Estilizadas) */
 .image-placeholder-wrapper {
   width: 100%;
   border-radius: 12px;
@@ -465,7 +520,7 @@ ul {
 .grid-image {
   width: 100%;
   height: 100%;
-  aspect-ratio: 16/10; /* Proporción panorámica ideal */
+  aspect-ratio: 16/10;
   display: block;
   object-fit: cover;
   transition: var(--transition-smooth);
@@ -475,7 +530,7 @@ ul {
   transform: scale(1.04);
 }
 
-/* 11. Footer */
+/* 10. Footer */
 .site-footer {
   background-color: var(--navy-dark);
   color: #ffffff;
@@ -513,8 +568,33 @@ ul {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* 12. Media Queries (Responsividad) */
+/* 11. Media Queries (Responsividad) */
 @media (max-width: 992px) {
+  .logo-block {
+    left: 2rem;
+    width: 200px;
+  }
+
+  .logo-image-large {
+    height: 75px;
+  }
+
+  .logo-title {
+    font-size: 1.25rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.4rem;
+  }
+
+  .top-gap {
+    width: 200px;
+  }
+
+  .nav-spacer {
+    width: 220px;
+  }
+
   .content-grid, .content-grid.reverse {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -543,21 +623,49 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .top-bar {
-    display: none;
+  .logo-block {
+    position: static;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 2rem;
+    gap: 12px;
+    background-color: #ffffff;
   }
 
-  .header-wrapper {
-    height: 80px;
-  }
-
-  .logo-image {
+  .logo-image-large {
     height: 50px;
-    width: 50px;
+    margin-top: 0;
+  }
+
+  .logo-text-wrapper {
+    align-items: flex-start;
   }
 
   .logo-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.45rem;
+  }
+
+  .header-top-row {
+    display: none;
+  }
+
+  .header-bottom-row {
+    height: 60px;
+    background-color: #ffffff;
+  }
+
+  .nav-spacer {
+    display: none;
+  }
+
+  .nav-container {
+    justify-content: flex-end;
   }
 
   .main-nav {
@@ -607,6 +715,7 @@ ul {
 
   .mobile-nav-toggle {
     display: flex;
+    margin-right: 2rem;
   }
 
   .mobile-nav-toggle.active .bar:nth-child(1) {

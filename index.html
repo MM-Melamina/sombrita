@@ -16,56 +16,64 @@
 </head>
 <body>
 
-  <!-- Barra de Contacto Superior (Top Bar) -->
-  <div class="top-bar">
-    <div class="container top-bar-wrapper">
-      <div class="top-bar-left">
-        <span>📞 Contacto: 55-1234-5678</span>
-        <span>💬 WhatsApp: 55-8765-4321</span>
-      </div>
-      <div class="top-bar-right">
-        <span>🚚 Entrega a Domicilio</span>
-        <span>🇲🇽 Envíos a todo México</span>
+  <!-- Encabezado / Navegación Estilo GoDaddy Muestra -->
+  <header class="site-header">
+    
+    <!-- Bloque de Logotipo Absoluto (Icono arriba, Texto abajo) -->
+    <div class="logo-block">
+      <a href="/" class="logo-link">
+        <img src="./imagenes/Logo Sombrita-01.png" alt="Sombrita" class="logo-image-large" />
+        <div class="logo-text-wrapper">
+          <span class="logo-title">S O M B R I T <span class="orange-char">A</span></span>
+          <span class="logo-subtitle">— MALLA SOMBRA Y PLÁSTICOS —</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Fila Superior (Top Bar con Slants Diagonales) -->
+    <div class="header-top-row">
+      <div class="top-blue-left"></div>
+      <div class="top-gap"></div>
+      <div class="top-blue-right">
+        <div class="top-links">
+          <a href="#distribuidor">Conviértete en Distribuidor</a>
+          <a href="#catalogo">Descarga el Catálogo</a>
+          <a href="#ask">Ask Sombrita</a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Encabezado / Navegación -->
-  <header class="site-header">
-    <div class="container header-wrapper">
-      <div class="logo">
-        <a href="/" class="logo-link">
-          <img src="./imagenes/Logo Sombrita-01.png" alt="Sombrita" class="logo-image" />
-          <div class="logo-text-wrapper">
-            <span class="logo-title">SOMBRITA</span>
-            <span class="logo-subtitle">MALLAS SOMBRA & MALLAS LONAS</span>
-          </div>
-        </a>
+    
+    <!-- Fila Inferior (Barra Gris con Navegación) -->
+    <div class="header-bottom-row">
+      <div class="container nav-container">
+        <!-- Espaciador para no empalmar con el logotipo absoluto -->
+        <div class="nav-spacer"></div>
+        
+        <!-- Menú de Navegación -->
+        <nav class="main-nav">
+          <ul>
+            <li class="dropdown">
+              <a href="#productos" class="dropdown-toggle">PRODUCTOS <span class="arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#malla-raschel">Malla Raschel</a></li>
+                <li><a href="#malla-monofilamento">Malla Monofilamento</a></li>
+                <li><a href="#lona-arquitectonica">Lona Arquitectónica</a></li>
+                <li><a href="#lona-toldos">Lona de Toldos</a></li>
+                <li><a href="#lona-transportistas">Lona de Transportistas</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#galeria" class="dropdown-toggle">GALERÍA <span class="arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#fotos">Fotos</a></li>
+                <li><a href="#videos">Videos</a></li>
+              </ul>
+            </li>
+            <li><a href="#profesionales">PARA PROFESIONALES</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+          </ul>
+        </nav>
       </div>
-      
-      <nav class="main-nav">
-        <ul>
-          <li class="dropdown">
-            <a href="#productos" class="dropdown-toggle">PRODUCTOS <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#malla-raschel">Malla Raschel</a></li>
-              <li><a href="#malla-monofilamento">Malla Monofilamento</a></li>
-              <li><a href="#lona-arquitectonica">Lona Arquitectónica</a></li>
-              <li><a href="#lona-toldos">Lona de Toldos</a></li>
-              <li><a href="#lona-transportistas">Lona de Transportistas</a></li>
-            </ul>
-          </li>
-          <li><a href="#galeria">GALERÍA</a></li>
-          <li><a href="#profesionales">PARA PROFESIONALES</a></li>
-          <li><a href="#contacto">CONTACTO</a></li>
-        </ul>
-      </nav>
-      
-      <button class="mobile-nav-toggle" aria-label="Abrir menú">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
     </div>
   </header>
 
@@ -185,7 +193,7 @@
       </div>
     </div>
 
-    <!-- Bloque 5: Te acompañamos en tu camino cuidando lo importante (Sesgado a la izquierda) -->
+    <!-- Bloque 5: Te acompañamos en tu camino cuidando lo important (Sesgado a la izquierda) -->
     <section class="skew-section skew-left bg-blue-gray">
       <div class="container skew-content">
         <div class="content-grid">
