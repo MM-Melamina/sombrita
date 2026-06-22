@@ -89,7 +89,7 @@ ul {
 }
 
 .logo-image-large {
-  height: 105px;
+  height: 130px;
   width: auto;
   object-fit: contain;
   margin-top: 0;
@@ -137,7 +137,7 @@ ul {
 /* Fila Superior (Top Bar con Cortes Diagonales) */
 .header-top-row {
   display: flex;
-  height: 40px;
+  height: 45px;
   background-color: #ffffff; /* El fondo en el gap de en medio es blanco */
   position: relative;
 }
@@ -184,7 +184,7 @@ ul {
 .header-bottom-row {
   background-color: #e2e5ec; /* Gris claro de la muestra */
   border-bottom: 3.5px solid var(--navy-dark); /* Borde azul marino grueso */
-  height: 65px;
+  height: 85px;
 }
 
 .nav-container {
