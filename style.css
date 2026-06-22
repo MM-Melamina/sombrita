@@ -1,48 +1,33 @@
 /* ==========================================================================
-   Sombrita Base Design System
+   Sombrita Premium Custom Design System
    ========================================================================== */
 
-/* 1. Definición de Variables y Temas (Luz / Sombra) */
+/* 1. Definición de Variables y Temas */
 :root {
   /* Fuentes */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Transiciones estándar */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Colores del Cliente */
+  --navy-dark: #0a1c3f;      /* Azul marino de GoDaddy/Sombrita */
+  --navy-medium: #0e2254;    /* Azul medio corporativo */
+  --orange-accent: #e65c00;  /* Naranja brillante del logo */
+  --orange-light: #ff751a;   /* Naranja hover */
   
-  /* Sistema de Grid y Layout */
+  /* Fondos de Paneles Alternantes */
+  --bg-blue-gray: #cfd7e1;   /* Panel 1, 3, 5 */
+  --bg-olive-gray: #dcd7cc;  /* Panel 2, 4, 6 */
+  --bg-light: #fafafa;
+  --border-color: rgba(10, 28, 63, 0.08);
+  --text-dark: #0a1c3f;
+  --text-slate: #334155;
+
+  /* Transiciones */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --container-max-width: 1200px;
-  --container-padding: 0 2rem;
-
-  /* Colores - Tema Oscuro (Sombra - Default) */
-  --bg-color: #0b0f19;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-color: #d97706; /* Ambar cálido */
-  --accent-glow: rgba(217, 119, 6, 0.15);
-  --btn-primary-text: #0b0f19;
-  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
-  --btn-secondary-hover: rgba(255, 255, 255, 0.1);
 }
 
-/* Modificador de Tema Claro (Luz) */
-[data-theme="light"] {
-  --bg-color: #fafaf9;
-  --bg-card: rgba(0, 0, 0, 0.02);
-  --border-color: rgba(0, 0, 0, 0.08);
-  --text-primary: #1c1917;
-  --text-secondary: #57534e;
-  --accent-color: #ca8a04;
-  --accent-glow: rgba(202, 138, 4, 0.1);
-  --btn-primary-text: #fafaf9;
-  --btn-secondary-bg: rgba(0, 0, 0, 0.05);
-  --btn-secondary-hover: rgba(0, 0, 0, 0.08);
-}
-
-/* 2. Reset Base */
+/* 2. Reset General */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -56,12 +41,11 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-color);
-  color: var(--text-primary);
+  background-color: var(--bg-light);
+  color: var(--text-slate);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
 }
 
 a {
@@ -74,220 +58,563 @@ ul {
   list-style: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* 3. Componentes de Estructura */
+/* 3. Estructura */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: var(--container-padding);
+  padding: 0 2rem;
 }
 
-/* 4. Cabecera (Header) */
+/* 4. Barra Superior (Top Bar) */
+.top-bar {
+  background-color: var(--navy-dark);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  padding: 8px 0;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-left, .top-bar-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* 5. Cabecera y Navegación */
 .site-header {
-  position: fixed;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(10, 28, 63, 0.08);
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  border-bottom: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(11, 15, 25, 0.7);
-  transition: var(--transition-smooth);
-}
-
-[data-theme="light"] .site-header {
-  background-color: rgba(250, 250, 249, 0.7);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .header-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 90px;
 }
 
-.logo a {
+/* Logo */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.logo-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: -0.05em;
+  color: var(--navy-dark);
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
-.logo span {
-  color: var(--accent-color);
+.logo-subtitle {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--orange-accent);
+  letter-spacing: 0.15em;
+  margin-top: 2px;
 }
 
-.main-nav ul {
-  display: flex;
-  gap: 2rem;
-}
-
-.main-nav a {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--text-primary);
-}
-
-.theme-toggle-wrapper button {
-  background: none;
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+/* Menu de Navegación */
+.main-nav > ul {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.2rem;
+  gap: 2.2rem;
+}
+
+.main-nav > ul > li > a {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 10px 0;
+}
+
+.main-nav > ul > li > a:hover {
+  color: var(--orange-accent);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-toggle .arrow {
+  font-size: 0.6rem;
   transition: var(--transition-smooth);
 }
 
-.theme-toggle-wrapper button:hover {
-  background-color: var(--btn-secondary-hover);
-  transform: scale(1.05);
+.dropdown:hover .dropdown-toggle .arrow {
+  transform: rotate(180deg);
+  color: var(--orange-accent);
 }
 
-/* 5. Sección Hero */
-.hero-section {
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 240px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(10, 28, 63, 0.1);
+  border-top: 3px solid var(--orange-accent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: var(--transition-smooth);
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(230, 92, 0, 0.05);
+  color: var(--orange-accent);
+  padding-left: 25px;
+}
+
+/* Botón Hamburguesa Móvil */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-nav-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background-color: var(--navy-dark);
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+
+/* 6. Sección de Video Hero Placeholder */
+.hero-video-section {
+  width: 100%;
+  background-color: var(--navy-dark);
+  position: relative;
+}
+
+.video-placeholder {
+  min-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding-top: 80px;
+  color: #ffffff;
   text-align: center;
   position: relative;
+  background: linear-gradient(135deg, #0a1c3f 0%, #1e3a7a 100%);
   overflow: hidden;
 }
 
-/* Efecto de luz de fondo sutil */
-.hero-section::before {
+/* Patrón geométrico sutil que emula la malla */
+.video-placeholder::after {
   content: '';
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  background-radius: 50%;
-  background: var(--accent-glow);
-  filter: blur(100px);
-  z-index: -1;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-image: radial-gradient(var(--bg-light) 1px, transparent 1px);
+  background-size: 8px 8px;
 }
 
-.hero-wrapper {
-  max-width: 800px;
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 28, 63, 0.5);
+  z-index: 1;
+}
+
+.video-placeholder-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.2rem;
+}
+
+.play-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  color: #ffffff;
+}
+
+.play-icon-wrapper:hover {
+  transform: scale(1.1);
+  background-color: var(--orange-accent);
+  border-color: var(--orange-accent);
+}
+
+.play-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+}
+
+.video-placeholder-content h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.video-placeholder-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 7. Bloques Sesgados (Alternating Skewed Panels) */
+.skew-section {
+  position: relative;
+  padding: 7rem 0;
+  margin: 3.5rem 0;
+}
+
+/* El truco de la pseudo-clase ::before para el fondo sesgado. 
+   Esto evita que el texto y el grid de adentro se desalineen o se inclinen. */
+.skew-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 110%;
+  height: 100%;
+  z-index: -1;
+}
+
+.skew-left::before {
+  transform: skewY(-3.5deg);
+}
+
+.skew-right::before {
+  transform: skewY(3.5deg);
+}
+
+/* Colores de Fondo de los Bloques */
+.bg-blue-gray::before {
+  background-color: var(--bg-blue-gray);
+}
+
+.bg-olive-gray::before {
+  background-color: var(--bg-olive-gray);
+}
+
+.skew-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid de Contenido */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content-grid.reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.hero-title {
+.section-title {
   font-family: var(--font-heading);
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  line-height: 1.1;
+  color: var(--navy-dark);
+  line-height: 1.15;
   letter-spacing: -0.03em;
 }
 
-.hero-title span {
-  color: var(--accent-color);
+.section-text {
+  font-size: 1.05rem;
+  color: var(--navy-dark);
+  line-height: 1.7;
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  max-width: 600px;
+.section-text strong {
+  font-weight: 700;
+  color: var(--navy-dark);
 }
 
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+/* 8. Separadores de Líneas de Producto */
+.banner-separator {
+  background-color: var(--navy-dark);
+  color: #ffffff;
+  padding: 3rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
-/* Botones */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+.banner-separator h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.banner-separator .highlight {
+  color: var(--orange-accent);
+  font-weight: 800;
+}
+
+/* 9. Placeholders de Imagen */
+.image-placeholder-wrapper {
+  width: 100%;
+}
+
+.img-placeholder {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 100%);
+  border: 2px dashed rgba(10, 28, 63, 0.2);
   border-radius: 8px;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 2rem;
+  color: var(--navy-dark);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
   transition: var(--transition-smooth);
 }
 
-.btn-primary {
-  background-color: var(--accent-color);
-  color: var(--btn-primary-text);
-  box-shadow: 0 4px 14px var(--accent-glow);
+.img-placeholder:hover {
+  border-color: var(--orange-accent);
+  box-shadow: 0 12px 40px rgba(230, 92, 0, 0.08);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--accent-glow);
+.placeholder-icon {
+  font-size: 2.8rem;
 }
 
-.btn-secondary {
-  background-color: var(--btn-secondary-bg);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
+.placeholder-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  max-width: 80%;
 }
 
-.btn-secondary:hover {
-  background-color: var(--btn-secondary-hover);
-  transform: translateY(-2px);
+.placeholder-size {
+  font-size: 0.75rem;
+  color: rgba(10, 28, 63, 0.6);
+  font-family: monospace;
 }
 
-/* 6. Sección Genérica / Nosotros */
-.about-section {
-  padding: 8rem 0;
-  border-top: 1px solid var(--border-color);
+/* 10. Footer */
+.site-footer {
+  background-color: var(--navy-dark);
+  color: #ffffff;
+  padding: 5rem 0 3rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
-.about-section h2 {
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 5px;
+}
+
+.footer-logo .logo-title {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
 }
 
-/* 7. Footer */
-.site-footer {
-  padding: 3rem 0;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+.footer-logo .logo-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--orange-accent);
+  letter-spacing: 0.18em;
 }
 
-/* 8. Media Queries Responsivos */
+.footer-copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 11. Media Queries (Responsividad) */
+@media (max-width: 992px) {
+  .content-grid, .content-grid.reverse {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .content-grid.reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .section-title {
+    font-size: 2.1rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
+  .top-bar {
+    display: none;
   }
-  
+
+  .header-wrapper {
+    height: 80px;
+  }
+
+  .logo-title {
+    font-size: 1.5rem;
+  }
+
   .main-nav {
-    display: none; /* Simplificado para base; puedes implementar un menú hamburguesa */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-smooth);
+    padding: 1.5rem 0;
   }
-  
-  .hero-actions {
+
+  .main-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .main-nav > ul {
     flex-direction: column;
-    width: 100%;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 0 2rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border-top: none;
+    border-left: 2px solid var(--orange-accent);
+    padding: 5px 0 5px 15px;
+    margin-top: 5px;
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  /* Animación hamburguesa móvil */
+  .mobile-nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
   }
   
-  .btn {
-    width: 100%;
-    text-align: center;
+  .mobile-nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .skew-section {
+    padding: 5rem 0;
+    margin: 2rem 0;
+  }
+
+  .video-placeholder {
+    min-height: 360px;
+  }
+
+  .video-placeholder-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .banner-separator h3 {
+    font-size: 1.2rem;
   }
 }
