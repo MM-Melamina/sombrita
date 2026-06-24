@@ -431,10 +431,11 @@
         }
         
         // Clona últimos elementos y los añade al principio
+        const firstOriginalItem = originalItems[0];
         for (let i = originalItems.length - cloneCount; i < originalItems.length; i++) {
           const clone = originalItems[i].cloneNode(true);
           clone.classList.add('carousel-clone');
-          viewport.insertBefore(clone, viewport.firstChild);
+          viewport.insertBefore(clone, firstOriginalItem);
         }
         
         const getLayout = () => {
