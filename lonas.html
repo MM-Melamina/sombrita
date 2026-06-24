@@ -468,11 +468,11 @@
         const handleScrollSnap = () => {
           if (isSnapping) return;
           
-          const { originalWidth, prependWidth } = layout;
+          const { step, originalWidth, prependWidth } = layout;
           const scrollLeft = viewport.scrollLeft;
           const tolerance = 10;
           
-          if (scrollLeft < prependWidth - tolerance) {
+          if (scrollLeft < step - tolerance) {
             isSnapping = true;
             viewport.style.scrollSnapType = 'none';
             viewport.style.scrollBehavior = 'auto';
