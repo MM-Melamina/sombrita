@@ -450,76 +450,146 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const carousels = ['carousel-industria', 'carousel-hogar', 'carousel-negocio'];
-      
-      carousels.forEach(id => {
+      const setupInfiniteCarousel = (id) => {
         const carousel = document.getElementById(id);
         if (!carousel) return;
         
         const viewport = carousel.querySelector('.carousel-viewport');
         const prevBtn = carousel.querySelector('.prev-arrow');
         const nextBtn = carousel.querySelector('.next-arrow');
-        
         if (!viewport) return;
         
-        const getScrollAmount = () => {
+        const originalItems = Array.from(viewport.querySelectorAll('.carousel-item'));
+        if (originalItems.length === 0) return;
+        
+        const gap = 24; // 1.5rem gap
+        const cloneCount = 3;
+        
+        // Clone first items and append to end
+        for (let i = 0; i < cloneCount; i++) {
+          const clone = originalItems[i].cloneNode(true);
+          clone.classList.add('carousel-clone');
+          viewport.appendChild(clone);
+        }
+        
+        // Clone last items and prepend to start
+        for (let i = originalItems.length - cloneCount; i < originalItems.length; i++) {
+          const clone = originalItems[i].cloneNode(true);
+          clone.classList.add('carousel-clone');
+          viewport.insertBefore(clone, viewport.firstChild);
+        }
+        
+        const getLayout = () => {
           const firstItem = viewport.querySelector('.carousel-item');
-          if (firstItem) {
-            return firstItem.offsetWidth + 24; // 24px is the 1.5rem gap
-          }
-          return viewport.offsetWidth;
+          const itemWidth = firstItem ? firstItem.offsetWidth : 0;
+          const step = itemWidth + gap;
+          const originalWidth = originalItems.length * step;
+          const prependWidth = cloneCount * step;
+          return { step, originalWidth, prependWidth };
         };
+        
+        let layout = getLayout();
+        
+        // Initialize position (scroll past prepended clones)
+        viewport.scrollLeft = layout.prependWidth;
+        
+        // Keep alignment on resize
+        window.addEventListener('resize', () => {
+          const oldLayout = layout;
+          layout = getLayout();
+          if (oldLayout.step > 0) {
+            const currentRatio = viewport.scrollLeft / oldLayout.step;
+            viewport.scrollLeft = currentRatio * layout.step;
+          } else {
+            viewport.scrollLeft = layout.prependWidth;
+          }
+        });
+        
+        // Handle scroll boundaries seamlessly
+        let isSnapping = false;
+        const handleScrollSnap = () => {
+          if (isSnapping) return;
+          
+          const { step, originalWidth, prependWidth } = layout;
+          const scrollLeft = viewport.scrollLeft;
+          const tolerance = 10;
+          
+          // Scrolled left into prepended items
+          if (scrollLeft < prependWidth - tolerance) {
+            isSnapping = true;
+            viewport.style.scrollSnapType = 'none'; // Temporarily disable snap to prevent browser fight
+            viewport.style.scrollBehavior = 'auto';
+            viewport.scrollLeft = scrollLeft + originalWidth;
+            
+            // Restore snap & behavior
+            setTimeout(() => {
+              viewport.style.scrollSnapType = 'x mandatory';
+              viewport.style.scrollBehavior = 'smooth';
+              isSnapping = false;
+            }, 50);
+          } 
+          // Scrolled right into appended items
+          else if (scrollLeft >= prependWidth + originalWidth - tolerance) {
+            isSnapping = true;
+            viewport.style.scrollSnapType = 'none';
+            viewport.style.scrollBehavior = 'auto';
+            viewport.scrollLeft = scrollLeft - originalWidth;
+            
+            setTimeout(() => {
+              viewport.style.scrollSnapType = 'x mandatory';
+              viewport.style.scrollBehavior = 'smooth';
+              isSnapping = false;
+            }, 50);
+          }
+        };
+        
+        viewport.addEventListener('scroll', handleScrollSnap);
         
         // Manual navigation
         if (nextBtn) {
           nextBtn.addEventListener('click', () => {
-            viewport.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            const { step } = getLayout();
+            viewport.scrollBy({ left: step, behavior: 'smooth' });
           });
         }
         
         if (prevBtn) {
           prevBtn.addEventListener('click', () => {
-            viewport.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            const { step } = getLayout();
+            viewport.scrollBy({ left: -step, behavior: 'smooth' });
           });
         }
         
-        // Autoplay logic (1.5 seconds)
-        let intervalId = null;
+        // Autoplay logic
+        let autoplayInterval = null;
         
         const startAutoplay = () => {
-          if (intervalId) return;
-          intervalId = setInterval(() => {
-            const amount = getScrollAmount();
-            // Check if we are at the end (with 15px rounding threshold)
-            const isAtEnd = viewport.scrollLeft + viewport.offsetWidth >= viewport.scrollWidth - 15;
-            if (isAtEnd) {
-              viewport.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-              viewport.scrollBy({ left: amount, behavior: 'smooth' });
-            }
+          if (autoplayInterval) return;
+          autoplayInterval = setInterval(() => {
+            const { step } = getLayout();
+            viewport.scrollBy({ left: step, behavior: 'smooth' });
           }, 1500);
         };
         
         const stopAutoplay = () => {
-          if (intervalId) {
-            clearInterval(intervalId);
-            intervalId = null;
+          if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
           }
         };
         
-        // Start autoplay
         startAutoplay();
         
-        // Pause on mouse hover (desktop)
         carousel.addEventListener('mouseenter', stopAutoplay);
         carousel.addEventListener('mouseleave', startAutoplay);
-        
-        // Pause on touch (mobile)
         carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
         carousel.addEventListener('touchend', () => {
           setTimeout(startAutoplay, 2000);
         });
-      });
+      };
+      
+      const carousels = ['carousel-industria', 'carousel-hogar', 'carousel-negocio'];
+      carousels.forEach(id => setupInfiniteCarousel(id));
     });
   </script>
 </body>
