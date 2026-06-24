@@ -10,7 +10,8 @@ export default defineConfig({
         mallaMonofilamento: resolve(__dirname, 'malla-monofilamento.html'),
         lonaArquitectonica: resolve(__dirname, 'lona-arquitectonica.html'),
         lonaToldos: resolve(__dirname, 'lona-toldos.html'),
-        lonaTransportistas: resolve(__dirname, 'lona-transportistas.html')
+        lonaTransportistas: resolve(__dirname, 'lona-transportistas.html'),
+        plasticoNegro: resolve(__dirname, 'plastico-negro.html')
       }
     }
   }
