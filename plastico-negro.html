@@ -445,7 +445,6 @@
     </svg>
   </a>
 
-  <!-- Script para desplazamiento de carruseles -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const carousels = ['carousel-industria', 'carousel-hogar', 'carousel-negocio'];
@@ -458,25 +457,65 @@
         const prevBtn = carousel.querySelector('.prev-arrow');
         const nextBtn = carousel.querySelector('.next-arrow');
         
-        if (viewport && prevBtn && nextBtn) {
+        if (!viewport) return;
+        
+        const getScrollAmount = () => {
+          const firstItem = viewport.querySelector('.carousel-item');
+          if (firstItem) {
+            return firstItem.offsetWidth + 24; // 24px is the 1.5rem gap
+          }
+          return viewport.offsetWidth;
+        };
+        
+        // Manual navigation
+        if (nextBtn) {
           nextBtn.addEventListener('click', () => {
-            const firstItem = viewport.querySelector('.carousel-item');
-            if (firstItem) {
-              const itemWidth = firstItem.offsetWidth;
-              const gap = 24; // 1.5rem is 24px gap
-              viewport.scrollBy({ left: itemWidth + gap, behavior: 'smooth' });
-            }
-          });
-          
-          prevBtn.addEventListener('click', () => {
-            const firstItem = viewport.querySelector('.carousel-item');
-            if (firstItem) {
-              const itemWidth = firstItem.offsetWidth;
-              const gap = 24;
-              viewport.scrollBy({ left: -(itemWidth + gap), behavior: 'smooth' });
-            }
+            viewport.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
           });
         }
+        
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            viewport.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+          });
+        }
+        
+        // Autoplay logic (1.5 seconds)
+        let intervalId = null;
+        
+        const startAutoplay = () => {
+          if (intervalId) return;
+          intervalId = setInterval(() => {
+            const amount = getScrollAmount();
+            // Check if we are at the end (with 15px rounding threshold)
+            const isAtEnd = viewport.scrollLeft + viewport.offsetWidth >= viewport.scrollWidth - 15;
+            if (isAtEnd) {
+              viewport.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              viewport.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+          }, 1500);
+        };
+        
+        const stopAutoplay = () => {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+        };
+        
+        // Start autoplay
+        startAutoplay();
+        
+        // Pause on mouse hover (desktop)
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        
+        // Pause on touch (mobile)
+        carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+        carousel.addEventListener('touchend', () => {
+          setTimeout(startAutoplay, 2000);
+        });
       });
     });
   </script>
