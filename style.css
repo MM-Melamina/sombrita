@@ -1453,17 +1453,17 @@ ul {
 
 .plastico-title {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 4rem;
   font-weight: 800;
   color: var(--navy-dark);
   line-height: 1.1;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
   letter-spacing: 0.02em;
 }
 
 .plastico-subtitle {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--orange-accent);
   margin-bottom: 1.2rem;
@@ -1686,7 +1686,7 @@ ul {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   box-shadow: 0 4px 12px rgba(10, 28, 63, 0.04);
   transition: var(--transition-smooth);
 }
@@ -1696,6 +1696,10 @@ ul {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.carousel-item.text-img img {
+  object-position: top center;
 }
 
 .carousel-item:hover {
@@ -1755,7 +1759,7 @@ ul {
   }
   
   .plastico-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
   
   .carousel-item {
