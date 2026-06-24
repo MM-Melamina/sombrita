@@ -144,69 +144,23 @@
               </table>
             </div>
 
-            <!-- Muestra de abanico de lonas -->
-            <div class="lonas-fan-wrapper">
-              <img src="./imagenes/lonas/colores_fan.png" alt="Muestrario de colores de lonas" class="lonas-fan-img" />
+            <!-- Muestra de abanico y rollos de colores -->
+            <div class="lonas-images-row">
+              <div class="lonas-fan-wrapper">
+                <img src="./imagenes/lonas/colores_fan.png" alt="Muestrario de colores de lonas" class="lonas-fan-img" />
+              </div>
+              <div class="lonas-fan-wrapper">
+                <img src="./imagenes/lonas/colores_lona.jpg" alt="Muestrario de rollos de colores" class="lonas-fan-img" />
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Columna Derecha: Diagrama 3D de Capas y Swatches de Colores -->
         <div>
-          <!-- Diagrama SVG de Capas de la Lona -->
+          <!-- Diagrama de Capas de la Lona -->
           <div class="lonas-diagram-container">
-            <svg viewBox="0 0 500 350" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <!-- Patrón para el tejido de poliéster -->
-                <pattern id="mesh-pattern" width="12" height="12" patternUnits="userSpaceOnUse">
-                  <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
-                </pattern>
-                <!-- Sombra para las capas -->
-                <filter id="layer-shadow" x="-10%" y="-10%" width="130%" height="130%">
-                  <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0a1c3f" flood-opacity="0.1"/>
-                </filter>
-              </defs>
-
-              <!-- CAPA 5: PVDF Inferior -->
-              <polygon points="120,230 320,190 390,240 190,280" fill="#e2e8f0" opacity="0.35" stroke="#94a3b8" stroke-width="1" filter="url(#layer-shadow)"/>
-              
-              <!-- CAPA 4: PVC Inferior -->
-              <polygon points="120,200 320,160 390,210 190,250" fill="#1e3a8a" opacity="0.8" stroke="#1d4ed8" stroke-width="1" filter="url(#layer-shadow)"/>
-
-              <!-- CAPA 3: Tejido Poliéster Mesh -->
-              <polygon points="120,170 320,130 390,180 190,220" fill="url(#mesh-pattern)" stroke="#475569" stroke-width="1.5" filter="url(#layer-shadow)"/>
-              
-              <!-- CAPA 2: PVC Superior -->
-              <polygon points="120,140 320,100 390,150 190,190" fill="#2563eb" opacity="0.9" stroke="#3b82f6" stroke-width="1" filter="url(#layer-shadow)"/>
-
-              <!-- CAPA 1: PVDF Superior -->
-              <polygon points="120,110 320,70 390,120 190,160" fill="#ffffff" opacity="0.4" stroke="#cbd5e1" stroke-width="1" filter="url(#layer-shadow)"/>
-
-              <!-- Conector y Etiqueta: Capa 1 PVDF Superior -->
-              <line x1="255" y1="115" x2="410" y2="70" stroke="#f97316" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <circle cx="255" cy="115" r="3" fill="#f97316"/>
-              <text x="415" y="74" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#0f172a">Acabado en PVDF</text>
-
-              <!-- Conector y Etiqueta: Capa 2 PVC Superior -->
-              <line x1="220" y1="148" x2="40" y2="105" stroke="#f97316" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <circle cx="220" cy="148" r="3" fill="#f97316"/>
-              <text x="35" y="101" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="end">Capa superior de PVC</text>
-
-              <!-- Conector y Etiqueta: Capa 3 Tejido base -->
-              <line x1="190" y1="175" x2="40" y2="180" stroke="#f97316" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <circle cx="190" cy="175" r="3" fill="#f97316"/>
-              <text x="35" y="184" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="end">Tejido de poliéster</text>
-
-              <!-- Conector y Etiqueta: Capa 4 PVC Inferior -->
-              <line x1="250" y1="210" x2="410" y2="255" stroke="#f97316" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <circle cx="250" cy="210" r="3" fill="#f97316"/>
-              <text x="415" y="259" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#0f172a">Capa inferior de PVC</text>
-
-              <!-- Conector y Etiqueta: Capa 5 PVDF Inferior -->
-              <line x1="270" y1="250" x2="40" y2="280" stroke="#f97316" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <circle cx="270" cy="250" r="3" fill="#f97316"/>
-              <text x="35" y="284" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="end">Acabado en PVDF</text>
-            </svg>
+            <img src="./imagenes/lonas/capas.jpg" alt="Diagrama de capas de la lona de 18 oz" class="lonas-diagram-img" />
           </div>
 
           <!-- Swatches de Colores -->

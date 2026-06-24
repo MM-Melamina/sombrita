@@ -1927,6 +1927,13 @@ ul {
   align-items: flex-start;
 }
 
+.lonas-images-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .lonas-fan-wrapper {
   max-width: 320px;
   width: 100%;
@@ -1975,6 +1982,13 @@ ul {
   padding: 1.5rem;
   box-shadow: 0 8px 24px rgba(10, 28, 63, 0.04);
   margin-bottom: 2rem;
+}
+
+.lonas-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
 
 .lonas-swatches-container {
@@ -2140,6 +2154,10 @@ ul {
   
   .lonas-specs-block {
     align-items: center;
+  }
+  
+  .lonas-images-row {
+    justify-content: center;
   }
   
   .lonas-fan-wrapper {
