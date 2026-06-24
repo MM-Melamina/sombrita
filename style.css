@@ -1922,14 +1922,14 @@ ul {
 /* Specs Block: Fan & Table */
 .lonas-specs-block {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 
 .lonas-fan-wrapper {
-  flex: 0 0 220px;
-  max-width: 220px;
+  max-width: 320px;
+  width: 100%;
 }
 
 .lonas-fan-img {
@@ -1940,7 +1940,7 @@ ul {
 }
 
 .lonas-table-wrapper {
-  flex: 1 1 300px;
+  width: 100%;
 }
 
 .lonas-specs-table {
@@ -2139,11 +2139,10 @@ ul {
   }
   
   .lonas-specs-block {
-    justify-content: center;
+    align-items: center;
   }
   
   .lonas-fan-wrapper {
-    flex: 0 0 100%;
     max-width: 240px;
   }
   
