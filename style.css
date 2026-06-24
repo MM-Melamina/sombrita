@@ -1407,23 +1407,39 @@ ul {
   background-color: #ffffff;
 }
 
-.plastico-grid {
+.plastico-grid-layout {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
-  gap: 4rem;
+  gap: 2rem 4rem;
   align-items: start;
 }
 
-.plastico-left-col {
+.plastico-logo-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+.plastico-title-area {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
+}
+
+.plastico-photo-area {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.plastico-table-area {
+  display: block;
 }
 
 .plastico-logo-sheet {
-  max-width: 160px;
-  margin-bottom: 2rem;
+  max-width: 260px;
+  width: 100%;
   height: auto;
 }
 
@@ -1432,11 +1448,6 @@ ul {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(10, 28, 63, 0.06);
-}
-
-.plastico-right-col {
-  display: flex;
-  flex-direction: column;
 }
 
 .plastico-title {
@@ -1727,13 +1738,19 @@ ul {
 
 /* Responsiveness for Plástico Negro Components */
 @media (max-width: 992px) {
-  .plastico-grid {
+  .plastico-grid-layout {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
   
-  .plastico-left-col {
-    margin-bottom: 0;
+  .plastico-logo-area {
+    justify-content: center;
+    padding-left: 0;
+  }
+  
+  .plastico-title-area {
+    text-align: center;
+    align-items: center;
   }
   
   .plastico-title {
