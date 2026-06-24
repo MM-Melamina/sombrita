@@ -1809,3 +1809,369 @@ ul {
   }
 }
 
+
+
+/* ==========================================================================
+   Lonas Page Custom Components styling
+   ========================================================================== */
+
+/* Hero Video Lonas */
+.lonas-video-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--navy-dark);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lonas-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ficha Técnica Section */
+.lonas-detail-section {
+  padding: 4rem 0 2rem 0;
+  background-color: #ffffff;
+}
+
+.lonas-grid-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem 4rem;
+  align-items: start;
+}
+
+/* Title Styling */
+.lonas-title-area {
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--orange-accent);
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.lonas-main-title {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.lonas-weight {
+  font-size: 5rem;
+  margin-left: 0.8rem;
+  margin-right: 0.2rem;
+  line-height: 0.8;
+  font-weight: 800;
+  color: var(--navy-dark);
+}
+
+.lonas-unit {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  line-height: 0.9;
+  font-weight: 800;
+  color: var(--navy-dark);
+  text-align: center;
+  align-self: center;
+}
+
+.lonas-unit span:first-child {
+  border-bottom: 2px solid var(--navy-dark);
+  padding-bottom: 1px;
+  margin-bottom: 2px;
+}
+
+/* Subtitle and Description */
+.lonas-desc {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-slate);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.lonas-ficha-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.lonas-ficha-subtitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--orange-accent);
+  margin-bottom: 1.5rem;
+}
+
+/* Specs Block: Fan & Table */
+.lonas-specs-block {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.lonas-fan-wrapper {
+  flex: 0 0 220px;
+  max-width: 220px;
+}
+
+.lonas-fan-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(10, 28, 63, 0.06);
+}
+
+.lonas-table-wrapper {
+  flex: 1 1 300px;
+}
+
+.lonas-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lonas-specs-table tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.lonas-specs-table th {
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--navy-dark);
+  width: 35%;
+}
+
+.lonas-specs-table td {
+  padding: 0.6rem 0;
+  font-size: 0.85rem;
+  color: var(--text-slate);
+}
+
+/* Right Column: Layer Diagram & Swatches */
+.lonas-diagram-container {
+  width: 100%;
+  background: #f7f9fc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(10, 28, 63, 0.04);
+  margin-bottom: 2rem;
+}
+
+.lonas-swatches-container {
+  padding: 0 0.5rem;
+}
+
+.lonas-swatch-group-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lonas-swatches-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.lonas-swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  text-align: center;
+}
+
+.lonas-color-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  border: 2px solid #ffffff;
+}
+
+.lonas-color-circle:hover {
+  transform: scale(1.1);
+}
+
+.lonas-color-circle.border-thin {
+  border-color: #cbd5e1;
+}
+
+.lonas-color-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-slate);
+}
+
+/* Header bars for carousels */
+.lonas-carousel-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin: 3.5rem 0 1rem 0;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.lonas-carousel-headers.row3 {
+  grid-template-columns: 2fr 1fr;
+}
+
+.lonas-header-col {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lonas-header-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--orange-accent);
+  flex-shrink: 0;
+}
+
+.lonas-header-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Footer Banner */
+.lonas-footer-banner {
+  background-color: var(--navy-dark);
+  color: #ffffff;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.lonas-footer-banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.lonas-banner-col {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lonas-banner-icon {
+  width: 38px;
+  height: 38px;
+  color: #ffffff;
+}
+
+.lonas-banner-text {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.lonas-banner-whatsapp {
+  color: var(--orange-accent);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  transition: opacity 0.2s ease;
+}
+
+.lonas-banner-whatsapp:hover {
+  opacity: 0.9;
+}
+
+/* Responsiveness for Lonas Page */
+@media (max-width: 992px) {
+  .lonas-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .lonas-title-area {
+    text-align: center;
+  }
+  
+  .lonas-main-title {
+    font-size: 2.4rem;
+  }
+  
+  .lonas-weight {
+    font-size: 3.8rem;
+  }
+  
+  .lonas-unit {
+    font-size: 0.9rem;
+  }
+  
+  .lonas-specs-block {
+    justify-content: center;
+  }
+  
+  .lonas-fan-wrapper {
+    flex: 0 0 100%;
+    max-width: 240px;
+  }
+  
+  .lonas-carousel-headers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    border-bottom: none;
+  }
+  
+  .lonas-carousel-headers.row3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .lonas-header-col {
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lonas-footer-banner-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+  
+  .lonas-banner-col {
+    justify-content: center;
+    width: 100%;
+  }
+}
