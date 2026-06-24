@@ -408,7 +408,7 @@
   <!-- Lógica de Carruseles Infinitos -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const setupInfiniteCarousel = (id) => {
+      const setupInfiniteCarousel = (id, reverse = false) => {
         const carousel = document.getElementById(id);
         if (!carousel) return;
         
@@ -522,7 +522,8 @@
           if (autoplayInterval) return;
           autoplayInterval = setInterval(() => {
             const { step } = getLayout();
-            viewport.scrollBy({ left: step, behavior: 'smooth' });
+            const amount = reverse ? -step : step;
+            viewport.scrollBy({ left: amount, behavior: 'smooth' });
           }, 1500);
         };
         
@@ -543,12 +544,9 @@
         });
       };
       
-      const carousels = [
-        'carousel-carpas-toldos-publicidad',
-        'carousel-agricola-camiones',
-        'carousel-infantil-recreativo'
-      ];
-      carousels.forEach(id => setupInfiniteCarousel(id));
+      setupInfiniteCarousel('carousel-carpas-toldos-publicidad', false);
+      setupInfiniteCarousel('carousel-agricola-camiones', true);
+      setupInfiniteCarousel('carousel-infantil-recreativo', false);
     });
   </script>
 </body>
