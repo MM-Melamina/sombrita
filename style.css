@@ -1416,15 +1416,16 @@ ul {
 
 .plastico-logo-area {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-left: 1.5rem;
+  align-self: center;
 }
 
 .plastico-title-area {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center;
 }
 
 .plastico-photo-area {
