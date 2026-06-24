@@ -464,39 +464,39 @@
           }
         });
         
-        // Lógica de Scroll Snap continuo
-        let isSnapping = false;
+        // Lógica de Scroll Snap continuo con Debounce (para evitar trabas en animaciones activas)
+        let scrollTimeout = null;
         const handleScrollSnap = () => {
-          if (isSnapping) return;
-          
-          const { step, originalWidth, prependWidth } = layout;
-          const scrollLeft = viewport.scrollLeft;
-          const tolerance = 10;
-          
-          if (scrollLeft < step - tolerance) {
-            isSnapping = true;
-            viewport.style.scrollSnapType = 'none';
-            viewport.style.scrollBehavior = 'auto';
-            viewport.scrollLeft = scrollLeft + originalWidth;
-            
-            setTimeout(() => {
-              viewport.style.scrollSnapType = 'x mandatory';
-              viewport.style.scrollBehavior = 'smooth';
-              isSnapping = false;
-            }, 50);
-          } 
-          else if (scrollLeft >= prependWidth + originalWidth - tolerance) {
-            isSnapping = true;
-            viewport.style.scrollSnapType = 'none';
-            viewport.style.scrollBehavior = 'auto';
-            viewport.scrollLeft = scrollLeft - originalWidth;
-            
-            setTimeout(() => {
-              viewport.style.scrollSnapType = 'x mandatory';
-              viewport.style.scrollBehavior = 'smooth';
-              isSnapping = false;
-            }, 50);
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
           }
+          
+          scrollTimeout = setTimeout(() => {
+            const { step, originalWidth, prependWidth } = getLayout();
+            const scrollLeft = viewport.scrollLeft;
+            const tolerance = 15;
+            
+            if (scrollLeft < step - tolerance) {
+              viewport.style.scrollSnapType = 'none';
+              viewport.style.scrollBehavior = 'auto';
+              viewport.scrollLeft = scrollLeft + originalWidth;
+              
+              setTimeout(() => {
+                viewport.style.scrollSnapType = 'x mandatory';
+                viewport.style.scrollBehavior = 'smooth';
+              }, 50);
+            } 
+            else if (scrollLeft >= prependWidth + originalWidth - tolerance) {
+              viewport.style.scrollSnapType = 'none';
+              viewport.style.scrollBehavior = 'auto';
+              viewport.scrollLeft = scrollLeft - originalWidth;
+              
+              setTimeout(() => {
+                viewport.style.scrollSnapType = 'x mandatory';
+                viewport.style.scrollBehavior = 'smooth';
+              }, 50);
+            }
+          }, 100);
         };
         
         viewport.addEventListener('scroll', handleScrollSnap);
