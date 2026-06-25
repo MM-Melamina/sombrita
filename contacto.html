@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto Sombrita - Mallas Sombra, Lonas de Alta Resistencia y Plásticos Negros. Solicita tu cotización por WhatsApp y localiza nuestra ubicación.">
+  <title>Contacto - Sombrita</title>
+  
+  <!-- Tipografía moderna (Montserrat & Outfit) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos base -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Encabezado / Navegación Estilo GoDaddy Muestra -->
+  <header class="site-header">
+    
+    <!-- Bloque de Logotipo Absoluto -->
+    <div class="logo-block">
+      <a href="./index.html" class="logo-link">
+        <img src="./imagenes/Logo Sombrita-01.png" alt="Sombrita" class="logo-image-large" />
+      </a>
+    </div>
+
+    <!-- Fila Superior (Top Bar con Slants Diagonales) -->
+    <div class="header-top-row">
+      <div class="top-blue-left"></div>
+      <div class="top-gap"></div>
+      <div class="top-blue-right">
+        <div class="top-links">
+          <a href="./index.html#distribuidor">Conviértete en Distribuidor</a>
+          <a href="./index.html#catalogo">Descarga el Catálogo</a>
+          <a href="./index.html#ask">Ask Sombrita</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fila Inferior (Barra Gris con Navegación) -->
+    <div class="header-bottom-row">
+      <div class="container nav-container">
+        <!-- Espaciador para no empalmar con el logotipo absoluto -->
+        <div class="nav-spacer"></div>
+        
+        <!-- Menú de Navegación -->
+        <nav class="main-nav">
+          <ul>
+            <li class="dropdown">
+              <a href="./index.html#productos" class="dropdown-toggle">PRODUCTOS <span class="arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="./malla-raschel.html">Malla Raschel</a></li>
+                <li><a href="./lonas.html">Lonas</a></li>
+                <li><a href="./plastico-negro.html">Plástico Negro</a></li>
+              </ul>
+            </li>
+            <li><a href="./galeria.html">GALERÍA</a></li>
+            <li><a href="./index.html#profesionales">PARA PROFESIONALES</a></li>
+            <li><a href="./contacto.html" class="active">CONTACTO</a></li>
+          </ul>
+        </nav>
+        
+        <!-- Botón de Menú Móvil -->
+        <button class="mobile-nav-toggle" aria-label="Abrir menú de navegación">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="main-content">
+    
+    <!-- Hero de Contacto -->
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contáctanos</h1>
+        <p>¿Tienes dudas o necesitas una cotización a la medida? Escríbenos por WhatsApp o encuéntranos en nuestro mapa.</p>
+      </div>
+    </section>
+
+    <!-- Sección de Formulario de Contacto -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Bloque Izquierdo: Formulario -->
+          <div class="contact-card-box">
+            <h2>Solicitar Cotización por WhatsApp</h2>
+            <form class="contact-form" id="whatsappForm">
+              
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="clientName" class="form-label">Nombre Completo *</label>
+                  <input type="text" id="clientName" class="form-input" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                  <label for="clientPhone" class="form-label">Teléfono / WhatsApp *</label>
+                  <input type="tel" id="clientPhone" class="form-input" placeholder="Ej. 3312345678" required>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="clientEmail" class="form-label">Correo Electrónico</label>
+                  <input type="email" id="clientEmail" class="form-input" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="form-group">
+                  <label for="productInterest" class="form-label">Producto de Interés *</label>
+                  <select id="productInterest" class="form-select" required>
+                    <option value="" disabled selected>Selecciona un producto</option>
+                    <option value="Malla Sombra Raschel">Malla Sombra Raschel</option>
+                    <option value="Lonas de Alta Calidad">Lonas de Alta Calidad / Toldos</option>
+                    <option value="Plástico Negro">Plástico Negro (Construcción/Agrícola)</option>
+                    <option value="Otro">Otro / Consulta General</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="clientMessage" class="form-label">Mensaje / Requerimientos Específicos *</label>
+                <textarea id="clientMessage" class="form-textarea" placeholder="Describe las medidas, colores o detalles de tu proyecto..." required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <svg viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.001-2.636-1.024-5.114-2.886-6.978-1.862-1.863-4.337-2.887-6.971-2.888-5.442 0-9.865 4.42-9.867 9.861-.001 1.761.464 3.479 1.348 5.011L1.13 21.093l5.517-1.939zm11.302-6.864c-.302-.15-1.786-.882-2.046-1.017-.26-.135-.45-.201-.64.084-.19.285-.736.93-.902 1.124-.167.195-.334.21-.636.06-1.045-.522-1.802-.924-2.518-2.155-.192-.329.192-.305.549-1.02.06-.12.03-.225-.015-.315-.045-.09-.45-1.08-.616-1.482-.162-.392-.326-.339-.45-.339-.115-.005-.247-.006-.38-.006-.132 0-.349.049-.532.247-.183.198-.7.684-.7 1.67 0 .985.717 1.939.817 2.072.1.133 1.411 2.155 3.418 3.017.477.206.85.328 1.139.42.48.152.917.13 1.263.078.385-.058 1.786-.73 2.036-1.434.25-.705.25-1.31.175-1.434-.075-.124-.275-.198-.578-.348z"/>
+                </svg>
+                Enviar por WhatsApp
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Bloque Derecho: Información Directa -->
+          <div class="contact-info-panel">
+            
+            <div class="info-card">
+              <h3>Datos de Contacto</h3>
+              <div class="info-list">
+                
+                <div class="info-item">
+                  <div class="info-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.09 15.09 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.36 11.36 0 003.58 1.1 1 1 0 01.89 1v3.5a1 1 0 01-1 1A16 16 0 013 5a1 1 0 011-1h3.5a1 1 0 011 .89 11.36 11.36 0 001.1 3.58 1 1 0 01-.27 1.1l-2.2 2.22z"/></svg>
+                  </div>
+                  <div class="info-text-wrapper">
+                    <h4>Teléfono</h4>
+                    <p><a href="tel:+521234567890">+52 (123) 456-7890</a></p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </div>
+                  <div class="info-text-wrapper">
+                    <h4>Correo Electrónico</h4>
+                    <p><a href="mailto:contacto@sombrita.com.mx">contacto@sombrita.com.mx</a></p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                  </div>
+                  <div class="info-text-wrapper">
+                    <h4>Ubicación</h4>
+                    <p>Guadalajara, Jalisco, México</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.88L11 13V7h1.5v5.25l3.85 2.3-.76 1.33z"/></svg>
+                  </div>
+                  <div class="info-text-wrapper">
+                    <h4>Horario de Atención</h4>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábado: 9:00 AM - 2:00 PM</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>Envíos Nacionales</h3>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-slate);">
+                Contamos con cobertura de envío a todo México. Realizamos cotizaciones con fletes a tu localidad para asegurar que tus mallas sombra, rollos de plástico o lonas lleguen directo a tu obra o negocio.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Mapa -->
+    <section class="map-section">
+      <div class="container">
+        <div class="map-card">
+          <div class="map-container">
+            <!-- Mapa interactivo centrado en Guadalajara, Jalisco (Ubicación de Referencia) -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119485.03157529436!2d-103.4300305886616!3d20.673938304910334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b18e72b3de9f%3A0x6b8af3270bb19163!2sGuadalajara%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="site-footer">
+    <div class="container footer-wrapper">
+      <div class="footer-logo">
+        <span class="logo-title">SOMBRITA</span>
+        <span class="logo-subtitle">MALLAS SOMBRA & MALLAS LONAS</span>
+      </div>
+      <p class="footer-copyright">&copy; 2026 Sombrita. Todos los derechos reservados. Mallas Sombra, Lonas y Toldos en México.</p>
+    </div>
+  </footer>
+
+  <!-- Script de Navegación del Header -->
+  <script type="module" src="./main.js"></script>
+
+  <!-- Lógica de Envío de WhatsApp -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('whatsappForm');
+      
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const name = document.getElementById('clientName').value.trim();
+          const phone = document.getElementById('clientPhone').value.trim();
+          const email = document.getElementById('clientEmail').value.trim();
+          const interest = document.getElementById('productInterest').value;
+          const message = document.getElementById('clientMessage').value.trim();
+          
+          // Construcción del mensaje pre-llenado para WhatsApp
+          let textMsg = `Hola Sombrita, me gustaría solicitar una cotización.\n\n`;
+          textMsg += `*Datos del Cliente:*\n`;
+          textMsg += `- *Nombre:* ${name}\n`;
+          textMsg += `- *Teléfono:* ${phone}\n`;
+          if (email) {
+            textMsg += `- *Correo:* ${email}\n`;
+          }
+          textMsg += `- *Interés:* ${interest}\n\n`;
+          textMsg += `*Mensaje:*\n${message}`;
+          
+          // Codificación del mensaje para URL
+          const encodedText = encodeURIComponent(textMsg);
+          
+          // Número de teléfono de destino (debe ser el mismo configurado en la web)
+          const targetNumber = '521234567890';
+          
+          // Redirección en nueva pestaña
+          const waUrl = `https://wa.me/${targetNumber}?text=${encodedText}`;
+          window.open(waUrl, '_blank');
+        });
+      }
+    });
+  </script>
+
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="https://wa.me/521234567890" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.001-2.636-1.024-5.114-2.886-6.978-1.862-1.863-4.337-2.887-6.971-2.888-5.442 0-9.865 4.42-9.867 9.861-.001 1.761.464 3.479 1.348 5.011L1.13 21.093l5.517-1.939zm11.302-6.864c-.302-.15-1.786-.882-2.046-1.017-.26-.135-.45-.201-.64.084-.19.285-.736.93-.902 1.124-.167.195-.334.21-.636.06-1.045-.522-1.802-.924-2.518-2.155-.192-.329.192-.305.549-1.02.06-.12.03-.225-.015-.315-.045-.09-.45-1.08-.616-1.482-.162-.392-.326-.339-.45-.339-.115-.005-.247-.006-.38-.006-.132 0-.349.049-.532.247-.183.198-.7.684-.7 1.67 0 .985.717 1.939.817 2.072.1.133 1.411 2.155 3.418 3.017.477.206.85.328 1.139.42.48.152.917.13 1.263.078.385-.058 1.786-.73 2.036-1.434.25-.705.25-1.31.175-1.434-.075-.124-.275-.198-.578-.348z"/>
+    </svg>
+  </a>
+</body>
+</html>
