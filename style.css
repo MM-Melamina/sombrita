@@ -650,9 +650,9 @@ ul {
 
 /* Feature/Badge Bar */
 .product-features-bar {
-  background-color: #ffffff;
+  background-color: var(--navy-dark);
   padding: 2rem 0;
-  border-bottom: 1px solid rgba(10, 28, 63, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .product-features-container {
@@ -673,13 +673,13 @@ ul {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid rgba(10, 28, 63, 0.1);
+  border: 2px solid rgba(230, 92, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.8rem;
   color: var(--orange-accent);
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 
 .feature-circle-icon svg {
@@ -690,7 +690,7 @@ ul {
 .product-feature-item span {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: #ffffff;
   line-height: 1.3;
 }
 
