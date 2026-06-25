@@ -341,13 +341,13 @@ ul {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   color: #ffffff;
   padding: 0 2rem;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 0 8%;
   gap: 1.2rem;
 }
 
@@ -1259,6 +1259,12 @@ ul {
   .hero-video-section {
     height: 50vh;
     min-height: 320px;
+  }
+
+  .video-content {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .video-content h1 {
