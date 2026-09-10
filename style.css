@@ -709,7 +709,8 @@ ul {
   border: 1px solid rgba(10, 28, 63, 0.04);
 }
 
-.product-catalog-item:last-child {
+.product-catalog-item:last-child,
+.product-catalog-item:last-of-type {
   margin-bottom: 0;
 }
 
